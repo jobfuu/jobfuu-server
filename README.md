@@ -10,7 +10,7 @@
   - Coming Soon!
 
 ## Run locally
-    npm i express dotenv cors
+    npm i express dotenv cors supertest jest
 
 ## Project Domain
   Job search has been increasingly challenging for all background and levels of experience which is why JobFuu was created. JobFuu battles the obstacles of job search by bridging opportunities for career change with a job application tracker. Organizing your job search and find your jobfuu. 
