@@ -8,8 +8,6 @@ describe('REST API Tests', () => {
   test('Response with a / route', async () => {
     const response = await request.get('/');
 
-    console.log(response);
-
     expect(response.statusCode).toEqual(200);
     expect(response.badRequest).toBeFalsy();
     expect(response.req.path).toBe('/');
