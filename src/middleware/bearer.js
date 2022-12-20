@@ -1,7 +1,6 @@
 'use strict';
 
-// need to add route to user model here
-const {users} = require('');
+const { users } = require('../models/users');
 
 module.exports = async (req, res, next) => {
 

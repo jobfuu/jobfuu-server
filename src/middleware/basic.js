@@ -1,8 +1,8 @@
 'use strict';
 
 const base64 = require('base-64');
-// need to add user schema file route here
-const { users } = require('');
+
+const { users } = require('../models/users');
 
 module.exports = async (req, res, next) => {
 
@@ -24,5 +24,5 @@ module.exports = async (req, res, next) => {
   function _authError() {
     res.status(403).send('Invalid Login');
   }
-  
+
 }
