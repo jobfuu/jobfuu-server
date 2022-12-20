@@ -1,6 +1,6 @@
 'use strict';
 
-const jobModel = (sequelize, DataTypes) => sequelize.define('Jobs', {
+const jobsModel = (sequelize, DataTypes) => sequelize.define('Jobs', {
   position: {
     type: DataTypes.STRING,
     required: true,
@@ -28,5 +28,5 @@ const jobModel = (sequelize, DataTypes) => sequelize.define('Jobs', {
   }
 });
 
-module.exports = jobModel;
+module.exports = jobsModel;
 

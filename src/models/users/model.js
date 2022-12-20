@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 
 const SECRET = proccess.env.SECRET || 'secretstring';
 
-const userModel = (sequelize, DataTypes) => {
+const usersModel = (sequelize, DataTypes) => {
   const model = sequelize.define('Users', {
     username: {
       type: DataTypes.STRING,
@@ -92,4 +92,4 @@ const userModel = (sequelize, DataTypes) => {
 
 };
 
-module.exports = userModel;
+module.exports = usersModel;
