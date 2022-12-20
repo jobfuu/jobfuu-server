@@ -2,7 +2,7 @@
 
 const base64 = require('base-64');
 
-const { users } = require('../models/users');
+const { users } = require('../models/users/model');
 
 module.exports = async (req, res, next) => {
 
