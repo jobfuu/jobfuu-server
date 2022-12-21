@@ -1,3 +1,9 @@
 const { start } = require('./src/server');
+const { sequelizeDatabase } = require('./src/models');
 
-start();
+// sequelizeDatabase.sync()
+//   .then(() => {
+//     console.log('Successfully connected to DB!');
+    start();
+  // })
+  // .catch(error => console.error(error.message));
