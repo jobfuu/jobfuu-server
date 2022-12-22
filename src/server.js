@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3002;
 const errorHandler404 = require('./error-handlers/404');
 const errorHandler500 = require('./error-handlers/500');
 const jobsRouter = require('./routes/jobs');
-
+const v1Routes = require('./routes/v1');
 
 const app = express();
 
@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 })
 
 app.use(jobsRouter);
+app.use('/api/v1', v1Routes);
 
 app.use('*', errorHandler404);
 app.use(errorHandler500);
