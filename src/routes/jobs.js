@@ -19,9 +19,29 @@ router.use('/getJobs', async (req, res) => {
     if (error) {
       return console.error('failed to get jobs');
     } else {
-      res.status(200).send(response.body);
+      let parsedData = JSON.parse(response.body);
+      let jobData = parsedData.SearchResult.SearchResultItems;
+      let sanitizedData = sanitizeData(jobData);
+      res.status(200).send(sanitizedData);
     }
   });
-})
+});
+
+const sanitizeData = (data) => {
+  return data.map(job => ({
+    title: job.MatchedObjectDescriptor.PositionTitle,
+    jobId: job.MatchedObjectDescriptor.PositionID,
+    salary: 'refer to website',
+    url: job.MatchedObjectDescriptor.ApplyURI,
+    location: job.MatchedObjectDescriptor.PositionLocationDisplay,
+    company: job.MatchedObjectDescriptor.OrganizationName,
+    schedule: job.MatchedObjectDescriptor.PositionSchedule || ' ',
+    mission: job.MatchedObjectDescriptor.UserArea.Details.AgencyMarketingStatement,
+    summary: job.MatchedObjectDescriptor.UserArea.Details.JobSummary,
+    qualifications: job.MatchedObjectDescriptor.QualificationSummary,
+    duties: job.MatchedObjectDescriptor.UserArea.Details.MajorDuties,
+    education: job.MatchedObjectDescriptor.UserArea.Details.Education,
+  }));
+}
 
 module.exports = router;
